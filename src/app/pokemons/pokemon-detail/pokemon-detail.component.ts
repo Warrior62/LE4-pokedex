@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../model/pokemon.model';
 import { PokemonService } from '../pokemon.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'pk-pokemon-detail',
@@ -10,7 +11,7 @@ import { PokemonService } from '../pokemon.service';
 })
 export class PokemonDetailComponent implements OnInit {
 
-  constructor(private pokemonService: PokemonService, private route: ActivatedRoute) { }
+  constructor(private pokemonService: PokemonService, private route: ActivatedRoute, private location: Location) { }
 
   pokemon?: Pokemon;
 
@@ -21,5 +22,9 @@ export class PokemonDetailComponent implements OnInit {
 
   playPokemonSound(id: number){
     new Audio(`../../../assets/audio/${id}.mp3`).play()
+  }
+
+  goBack(){
+    this.location.back();
   }
 }

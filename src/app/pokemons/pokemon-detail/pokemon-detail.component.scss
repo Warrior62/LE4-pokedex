@@ -1,4 +1,4 @@
-.main-grid-list{
+#matCard, .main-grid-list{
   max-width: 50em;
 }
 
@@ -8,5 +8,9 @@
 
 .pokemon-name{
   margin-right: 10%;
+}
+
+.mat-icon:hover{
+  cursor: pointer;
 }
 

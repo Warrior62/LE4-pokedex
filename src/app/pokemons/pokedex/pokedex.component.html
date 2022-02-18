@@ -1,0 +1,10 @@
+<h1>Pokedex</h1>
+<mat-sidenav-container #pokedex_container>
+  <mat-sidenav class="pokedex-sidenav" mode="side" position="end" opened>
+    sidenav
+    <pk-pokemon-detail [pokemon]="pokemon"></pk-pokemon-detail>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <pk-pokemon-list></pk-pokemon-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>

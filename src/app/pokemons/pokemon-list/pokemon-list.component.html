@@ -1,10 +1,11 @@
-<mat-nav-list (scrolled)="onScroll($event)" style="background-color: green" infinite-scroll>
-  <mat-list-item *ngFor="let pokemon of pokemons?.data" (click)="displayPokemonDetail(pokemon)"><!-- routerLink="/pokemons/{{pokemon.id}}" -->
+<mat-form-field>
+  <mat-label>Rechercher :</mat-label>
+  <input matInput placeholder="Pokémon" (change)="onChangeEvent($event)">
+</mat-form-field>
+<mat-nav-list (scrolled)="onScroll($event)" infinite-scroll>
+  <mat-list-item *ngFor="let pokemon of pokemons?.data" (click)="displayDetails(pokemon)"><!-- routerLink="/pokemons/{{pokemon.id}}" -->
     <img matListAvatar src="../../../assets/img/sprites/{{pokemon.id}}.png" alt="{{pokemon.id}}">
     <p matLine>{{ pokemon.id }}</p>
     <p matLine>{{ pokemon.name }}</p>
-  </mat-list-item>
-  <mat-list-item style="width: 100%">
-    <pk-pokemon-detail [pokemon]="pokemon"></pk-pokemon-detail>
   </mat-list-item>
 </mat-nav-list>

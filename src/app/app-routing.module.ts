@@ -6,8 +6,6 @@ import { PokemonListComponent } from './pokemons/pokemon-list/pokemon-list.compo
 
 const routes: Routes = [
   {path: '', redirectTo: 'pokedex', pathMatch: 'full'},
-  {path: 'pokemons', component: PokemonListComponent},
-  {path: 'pokemons/:id', component: PokemonDetailComponent},
   {path: 'pokedex', component: PokedexComponent}
 ];
 

@@ -1,5 +1,7 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Pokemon } from '../model/pokemon.model';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'pk-pokedex',
@@ -8,11 +10,21 @@ import { Pokemon } from '../model/pokemon.model';
 })
 export class PokedexComponent implements OnInit {
 
-  @Input() pokemon?: Pokemon;
-  constructor() { }
+  pokemon?: Pokemon;
+
+  constructor(private pokemonService: PokemonService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
   }
 
+  getPokemon(){
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.pokemonService.getPokemonDetail(id).subscribe(pokemon => this.pokemon = pokemon);
+  }
 
+  displayPokemonDetail(pk?: Pokemon){
+    this.pokemon = pk;
+    //alert(this.pokemon.name)
+  }
 }

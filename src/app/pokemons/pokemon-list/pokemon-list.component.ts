@@ -46,8 +46,13 @@ export class PokemonListComponent implements OnInit {
   }
 
   onChangeEvent(search: string){
-    this.search = search
-    console.log(search)
-    this.pokemonService.getPokemonsBySearch(this.search).subscribe(pokemon => this.pokemons = pokemon)
+    if(search.length > 0){
+      this.search = search
+      console.log(search)
+      this.pokemonService.getPokemonsBySearch(this.search).subscribe(pokemon => this.pokemons = pokemon)
+    }
+    else {
+      this.pokemonService.getPokemonsWithOffset(this.offset).subscribe(pokemon => this.pokemons = pokemon);
+    }
   }
 }

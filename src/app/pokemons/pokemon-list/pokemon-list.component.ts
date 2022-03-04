@@ -1,8 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { PagedData } from '../model/paged-data.model';
 import { Pokemon } from '../model/pokemon.model';
-import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
 import { PokemonService } from '../pokemon.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class PokemonListComponent implements OnInit {
   pokemon?: Pokemon;
   @Output() displayDetailEvent = new EventEmitter<Pokemon>();
   offset?: number = 0;
-  pattern?: string;
+  search?: string;
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -46,7 +45,9 @@ export class PokemonListComponent implements OnInit {
     this.displayDetailEvent.emit(pk)
   }
 
-  onChangeEvent(e: any){
-    console.log(e.target.value)
+  onChangeEvent(search: string){
+    this.search = search
+    console.log(search)
+    this.pokemonService.getPokemonsBySearch(this.search).subscribe(pokemon => this.pokemons = pokemon)
   }
 }

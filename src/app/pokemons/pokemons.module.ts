@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { PokedexComponent } from './pokedex/pokedex.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PokedexComponent } from './pokedex/pokedex.component';
     MatIconModule,
     MatSidenavModule,
     MatInputModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FormsModule
   ]
 })
 export class PokemonsModule { }

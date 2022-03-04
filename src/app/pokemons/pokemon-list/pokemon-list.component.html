@@ -1,6 +1,6 @@
 <mat-form-field>
   <mat-label>Rechercher :</mat-label>
-  <input matInput placeholder="Pokémon" (change)="onChangeEvent($event)">
+  <input matInput placeholder="Pokémon" [ngModel]="search" (ngModelChange)="onChangeEvent($event)">
 </mat-form-field>
 <mat-nav-list (scrolled)="onScroll($event)" infinite-scroll>
   <mat-list-item *ngFor="let pokemon of pokemons?.data" (click)="displayDetails(pokemon)"><!-- routerLink="/pokemons/{{pokemon.id}}" -->

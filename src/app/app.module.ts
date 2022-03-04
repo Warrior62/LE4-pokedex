@@ -7,18 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokemonListComponent } from './pokemons/pokemon-list/pokemon-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonsModule } from './pokemons/pokemons.module';
+import { AuthentificationComponent } from './authentification/authentification.component';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthentificationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     PokemonsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

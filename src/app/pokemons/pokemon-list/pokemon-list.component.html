@@ -3,7 +3,7 @@
   <input matInput placeholder="Pokémon" [ngModel]="search" (ngModelChange)="onChangeEvent($event)">
 </mat-form-field>
 <mat-nav-list (scrolled)="onScroll($event)" infinite-scroll>
-  <mat-list-item *ngFor="let pokemon of pokemons?.data" (click)="displayDetails(pokemon)"><!-- routerLink="/pokemons/{{pokemon.id}}" -->
+  <mat-list-item *ngFor="let pokemon of pokemons?.data" (click)="displayDetails(pokemon)">
     <img matListAvatar src="../../../assets/img/sprites/{{pokemon.id}}.png" alt="{{pokemon.id}}">
     <p matLine>{{ pokemon.id }}</p>
     <p matLine>{{ pokemon.name }}</p>

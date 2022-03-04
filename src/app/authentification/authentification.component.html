@@ -1,0 +1,23 @@
+<p>Inscription</p>
+<mat-form-field appearance="fill">
+  <mat-label>Identifiant</mat-label>
+  <input matInput #identifiant>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Mot de passe</mat-label>
+  <input matInput #password>
+</mat-form-field>
+<button (click)="signup(identifiant.value, password.value)">Sign up</button>
+
+<br><br><br>
+
+<p>Connexion</p>
+<mat-form-field appearance="fill">
+  <mat-label>Identifiant</mat-label>
+  <input matInput #identifiantL>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Mot de passe</mat-label>
+  <input matInput #passwordL>
+</mat-form-field>
+<button (click)="login(identifiantL.value, passwordL.value)" routerLink="/pokedex">Sign in</button>

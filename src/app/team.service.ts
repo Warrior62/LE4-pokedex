@@ -47,11 +47,6 @@ export class TeamService {
     }
   }
 
-  clearPokemonsTeam(){
-    console.log('clearPokemonsTeam')
-    this.setMyTeam([]).subscribe(_ => this.teamIds = [])
-  }
-
   removePokemonFromTeam(id: number){
     var hasDeleted: boolean = false;
     this.teamIds.forEach((element,index)=>{
@@ -60,10 +55,11 @@ export class TeamService {
         hasDeleted = true;
         this.teamIds.splice(index, 1);
         this.setMyTeam(this.teamIds).subscribe(_ => {
+          console.log(`teamIds = ${this.teamIds}`)
+          this.http.put<[number]>(this.authService.pokemonsUrl + '/trainers/me/team', this.teamIds, {
+          headers: new HttpHeaders({'Authorization': 'Bearer ' + this.authService.token})})
           this.subject.next(this.teamIds)
-          this.http.put<[number]>(this.authService.pokemonsUrl + '/trainers/me/team', [], {
-          headers: new HttpHeaders({'Authorization': 'Bearer ' + this.authService.token})
-        })});
+        })
       }
     });
   }

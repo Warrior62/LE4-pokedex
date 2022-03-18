@@ -48,6 +48,11 @@ export class TeamPokemonComponent implements OnInit {
     })
   }
 
+  rmPkFromTeam(pk?: Pokemon){
+    if(pk)
+      this.teamService.removePokemonFromTeam(pk.id)
+  }
+
   displayDetails(pk?: Pokemon){
     this.displayDetailEvent.emit(pk)
   }

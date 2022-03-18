@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokemonsModule } from './pokemons/pokemons.module';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button'
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatInputModule } from '@angular/material/input';
     BrowserAnimationsModule,
     PokemonsModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

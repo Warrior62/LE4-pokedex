@@ -1,23 +1,36 @@
-<p>Inscription</p>
-<mat-form-field appearance="fill">
-  <mat-label>Identifiant</mat-label>
-  <input matInput #identifiant>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Mot de passe</mat-label>
-  <input matInput #password>
-</mat-form-field>
-<button (click)="signup(identifiant.value, password.value)">Sign up</button>
+<div class="row align-items-start">
+  <div id="inscription-form">
+    <p>Inscription</p>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill" class="mb-3">
+          <input matInput #identifiant placeholder="Email">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="fill" class="mb-3">
+          <input matInput #password placeholder="Mot de passe">
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button (click)="signup(identifiant.value, password.value)">Sign up</button>
+  </div>
 
-<br><br><br>
+  <div id="connexion-form">
+    <p>Connexion</p>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill" class="mb-3">
+          <input matInput #identifiantL placeholder="Email" value="mathistryla@gmail.com">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="fill" class="mb-3">
+          <input matInput #passwordL placeholder="Mot de passe" value="federer">
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button (click)="login(identifiantL.value, passwordL.value)">Sign in</button>
+  </div>
+</div>
 
-<p>Connexion</p>
-<mat-form-field appearance="fill">
-  <mat-label>Identifiant</mat-label>
-  <input matInput #identifiantL>
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Mot de passe</mat-label>
-  <input matInput #passwordL>
-</mat-form-field>
-<button (click)="login(identifiantL.value, passwordL.value)" routerLink="/pokedex">Sign in</button>

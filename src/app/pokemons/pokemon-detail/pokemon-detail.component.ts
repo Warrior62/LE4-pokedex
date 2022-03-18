@@ -1,8 +1,6 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Pokemon } from '../model/pokemon.model';
 import { PokemonService } from '../pokemon.service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'pk-pokemon-detail',

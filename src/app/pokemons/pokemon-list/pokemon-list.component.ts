@@ -1,5 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { forkJoin, Subject } from 'rxjs';
+import { AuthentificationService } from 'src/app/authentification.service';
+import { TeamService } from 'src/app/team.service';
 import { PagedData } from '../model/paged-data.model';
 import { Pokemon } from '../model/pokemon.model';
 import { PokemonService } from '../pokemon.service';
@@ -18,7 +21,8 @@ export class PokemonListComponent implements OnInit {
   offset?: number = 0;
   search?: string;
 
-  constructor(private pokemonService: PokemonService) { }
+
+  constructor(private pokemonService: PokemonService, private authService: AuthentificationService, private teamService: TeamService) { }
 
   ngOnInit(): void {
     //this.pokemonService.getPokemons().subscribe(pokemon => this.pokemons = pokemon);
@@ -52,7 +56,21 @@ export class PokemonListComponent implements OnInit {
       this.pokemonService.getPokemonsBySearch(this.search).subscribe(pokemon => this.pokemons = pokemon)
     }
     else {
-      this.pokemonService.getPokemonsWithOffset(this.offset).subscribe(pokemon => this.pokemons = pokemon);
+      this.pokemonService.getPokemonsWithOffset(this.offset).subscribe(pokemon => this.pokemons = pokemon)
+    }
+  }
+
+  addPkToTeam(pk: Pokemon){
+    console.log("addPkToTeam ")
+    if(this.teamService.teamIds.length < 6)
+    {
+      console.log("addPkToTeam 1")
+      /*if(this.teamService.teamIds.length + 1 == 6)
+        this.canAdd = false;
+      else
+        this.canAdd = true;
+      this.isInTeam = true;*/
+      this.teamService.addPokemonToTeam(pk.id || -1)
     }
   }
 }

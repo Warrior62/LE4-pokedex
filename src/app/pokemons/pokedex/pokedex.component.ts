@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthentificationService } from 'src/app/authentification.service';
 import { Pokemon } from '../model/pokemon.model';
 import { PokemonService } from '../pokemon.service';
 
@@ -15,7 +16,7 @@ export class PokedexComponent implements OnInit {
   constructor(private pokemonService: PokemonService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    //this.idPksToList = this.authService.idList
   }
 
   getPokemon(){

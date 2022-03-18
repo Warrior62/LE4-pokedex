@@ -7,5 +7,6 @@
     <img matListAvatar src="../../../assets/img/sprites/{{pokemon.id}}.png" alt="{{pokemon.id}}">
     <p matLine>{{ pokemon.id }}</p>
     <p matLine>{{ pokemon.name }}</p>
+    <button class="add-pk-btn"><mat-icon (click)="addPkToTeam(pokemon)">add</mat-icon></button>
   </mat-list-item>
 </mat-nav-list>

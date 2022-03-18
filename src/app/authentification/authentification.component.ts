@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthentificationService } from '../authentification.service';
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'pk-authentification',
@@ -8,7 +10,9 @@ import { AuthentificationService } from '../authentification.service';
 })
 export class AuthentificationComponent implements OnInit {
 
-  constructor(private authService: AuthentificationService) { }
+  token?: string
+
+  constructor(private authService: AuthentificationService, private teamService: TeamService, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,10 +25,12 @@ export class AuthentificationComponent implements OnInit {
 
   login(mail: string, pwd: string){
     this.authService.login(mail, pwd).subscribe(res => {
+      alert(`Bienvenue ${mail} !`)
+      this.token = res.access_token
       console.log(res.access_token)
-      alert('Bienvenue ' + mail)
-      this.authService.getMyTeam(res.access_token).subscribe(res => {
-        console.log(res)
+      this.route.navigate(["/pokedex"])
+      this.authService.getMyTeam(this.token).subscribe(res => {
+        console.log(`getMyteam = ${res}`)
       })
     })
   }

@@ -6,9 +6,6 @@
           <mat-list-item>
             <img src="../../../assets/img/official-artwork/{{pokemonToDisplay.id}}.png" class="pokemon-img">
           </mat-list-item>
-          <mat-list-item>
-            <p>No {{ pokemonToDisplay.id | number:'3.0-0' }}</p>
-          </mat-list-item>
       </mat-list>
     </mat-grid-tile>
 
@@ -16,7 +13,7 @@
       <mat-grid-list cols="1" rowHeight="4:1">
         <mat-list>
           <mat-list-item>
-            <p class="pokemon-name">{{ pokemonToDisplay.name }}</p>
+            <p class="pokemon-name">{{ pokemonToDisplay.name }} No {{ pokemonToDisplay.id | number:'3.0-0' }}</p>
             <mat-icon class="mat-icon" (click)="playPokemonSound(pokemonToDisplay.id)">play_circle_outline</mat-icon>
           </mat-list-item>
         </mat-list>

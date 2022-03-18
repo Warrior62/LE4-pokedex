@@ -3,3 +3,33 @@
   flex-direction: column;
   align-items: flex-start;
 }
+
+.align-items-start{
+  width: 70%;
+}
+
+#inscription-form{
+  float: left;
+  margin-left: 40%;
+}
+
+#connexion-form{
+  float: right;
+}
+
+#inscription-form, #connexion-form{
+  width: 20%;
+  border: 3px double black;
+  border-radius: 5%;
+  padding: 2%;
+  margin-top: 10%;
+  background-color: lightseagreen;
+}
+
+#inscription-form>button{
+  background-color: lightgreen;
+}
+
+#connexion-form>button{
+  background-color: lightpink;
+}

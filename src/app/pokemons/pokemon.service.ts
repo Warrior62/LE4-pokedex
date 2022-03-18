@@ -32,4 +32,7 @@ export class PokemonService {
     );
   }
 
+  getPokemonById(id: number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(this.pokemonsUrl + "/pokemons/" + id).pipe(tap(() => {console.log("fetched pokemon id " + id)}))
+  }
 }

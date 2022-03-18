@@ -1,0 +1,6 @@
+<mat-nav-list class="pokedex-list">
+  <mat-list-item *ngFor="let pokemon of pokemons" (click)="displayDetails(pokemon)">
+      <img matListAvatar src="assets/img/sprites/{{ pokemon.id }}.png" alt="pokemon_sprite_{{ pokemon.id }}">
+      <p matLine>{{pokemon.id}}. {{pokemon.name}}</p>
+  </mat-list-item>
+</mat-nav-list>

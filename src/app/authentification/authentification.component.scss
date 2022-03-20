@@ -9,15 +9,12 @@ h1{
   text-align: center;
 }
 
-#inscription-form{
-  margin-left: 17.5%;
-}
-
 #connexion-form{
   margin-left: 5%;
 }
 
 #inscription-form, #connexion-form{
+  display: inline-block;
   width: 30%;
   border: 3px double black;
   border-radius: 5%;

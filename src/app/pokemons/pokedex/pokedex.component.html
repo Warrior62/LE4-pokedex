@@ -1,0 +1,12 @@
+<img alt="Pokedex logo" src="../../../assets/img/pokedex_logo.png"/>
+<mat-sidenav-container #pokedex_container>
+  <mat-sidenav class="pokedex-sidenav" mode="side" position="end" opened>
+    <pk-pokemon-detail [pokemonToDisplay]="pokemon"></pk-pokemon-detail>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Pokemon List"><pk-pokemon-list (displayDetailEvent)="displayPokemonDetail($event)"></pk-pokemon-list></mat-tab>
+      <mat-tab label="My Team"><pk-team-pokemon (displayDetailEvent)="displayPokemonDetail($event)"></pk-team-pokemon></mat-tab>
+    </mat-tab-group>
+  </mat-sidenav-content>
+</mat-sidenav-container>

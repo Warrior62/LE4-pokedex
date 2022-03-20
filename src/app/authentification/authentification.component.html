@@ -1,0 +1,38 @@
+<h1>Authentification</h1>
+
+<div class="row align-items-start">
+  <div id="inscription-form">
+    <h2>Inscription</h2>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill" class="mb-3">
+          <input matInput #identifiant placeholder="Email">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="fill" class="mb-3">
+          <input matInput #password placeholder="Mot de passe">
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button (click)="signup(identifiant.value, password.value)">Sign up</button>
+  </div>
+
+  <div id="connexion-form">
+    <h2>Connexion</h2>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill" class="mb-3">
+          <input matInput #identifiantL placeholder="Email" value="mathistryla@gmail.com">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="fill" class="mb-3">
+          <input matInput #passwordL placeholder="Mot de passe" value="federer">
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button (click)="login(identifiantL.value, passwordL.value)">Sign in</button>
+  </div>
+</div>
+

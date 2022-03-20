@@ -1,12 +1,20 @@
-.main-grid-list{
-  max-width: 50em;
+#matCard{
+  max-width: 60em;
+  max-height: 25em;
+  background-color: blue;
+  border: 3px double yellow;
+}
+
+#mat-list-pk{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pokemon-img{
   width: 10em;
 }
 
-.pokemon-name{
-  margin-right: 10%;
+.mat-icon:hover{
+  cursor: pointer;
 }
-

@@ -1,0 +1,35 @@
+h1{
+  text-align: center;
+  margin-top: 7%;
+}
+
+.align-items-start{
+  width: 70%;
+  margin-left: 15%;
+  text-align: center;
+}
+
+#inscription-form{
+  margin-left: 17.5%;
+}
+
+#connexion-form{
+  margin-left: 5%;
+}
+
+#inscription-form, #connexion-form{
+  width: 30%;
+  border: 3px double black;
+  border-radius: 5%;
+  padding: 2%;
+  margin-top: 5%;
+  background-color: lightseagreen;
+}
+
+#inscription-form>button{
+  background-color: lightgreen;
+}
+
+#connexion-form>button{
+  background-color: lightpink;
+}

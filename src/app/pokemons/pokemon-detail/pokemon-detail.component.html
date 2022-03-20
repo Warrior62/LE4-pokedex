@@ -1,52 +1,42 @@
-<ng-container *ngIf="pokemon">
-  <mat-card>
-    <mat-grid-list cols="2" rowHeight="2:1" class="main-grid-list">
+<mat-card *ngIf="pokemonToDisplay" id="matCard">
+  <mat-grid-list cols="2" rowHeight="2:1" class="main-grid-list">
 
-      <mat-grid-tile>
-        <mat-grid-list cols="1" rowHeight="2:1">
-          <mat-list>
-            <mat-list-item>
-              <img src="../../../assets/img/sprites/{{pokemon.id}}.png" class="pokemon-img">
-            </mat-list-item>
-          </mat-list>
-          <mat-list>
-            <mat-list-item>
-              <p>No {{ pokemon.id | number:'3.0-0' }}</p>
-            </mat-list-item>
-          </mat-list>
-        </mat-grid-list>
-      </mat-grid-tile>
+    <mat-grid-tile>
+      <div id="mat-list-pk">
+        <mat-list-item>
+          <img src="../../../assets/img/official-artwork/{{pokemonToDisplay.id}}.png" class="pokemon-img">
+        </mat-list-item>
+        <mat-list-item>No {{ pokemonToDisplay.id | number:'3.0-0' }}</mat-list-item>
+      </div>
+    </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-grid-list cols="1" rowHeight="4:1">
-          <mat-list>
-            <mat-list-item>
-              <p class="pokemon-name">{{ pokemon.name }}</p>
-              <button (click)="playPokemonSound(pokemon.id)">
-                <mat-icon>audiotrack</mat-icon>
-              </button>
-            </mat-list-item>
-          </mat-list>
-          <mat-chip-list cdkDropListOrientation="horizontal">
-            <mat-chip *ngFor="let type of pokemon.types">{{ type }}</mat-chip>
-          </mat-chip-list>
-          <mat-list>
-            <mat-list-item>
-              <p>Taille: {{ pokemon.height | number:'1.1-1' }} m</p>
-            </mat-list-item>
-          </mat-list>
-          <mat-list>
-            <mat-list-item>
-              <p>Poids: {{ pokemon.weight | number:'1.1-1' }} kg</p>
-            </mat-list-item>
-          </mat-list>
-        </mat-grid-list>
-      </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-grid-list cols="1" rowHeight="4:1">
+        <mat-list>
+          <mat-list-item>
+            <p class="pokemon-name" style="margin-right: 10%">{{ pokemonToDisplay.name }}</p>
+            <mat-icon class="mat-icon" (click)="playPokemonSound(pokemonToDisplay.id)">play_circle_outline</mat-icon>
+          </mat-list-item>
+        </mat-list>
+        <mat-chip-list cdkDropListOrientation="horizontal">
+          <mat-chip *ngFor="let type of pokemonToDisplay.types">{{ type }}</mat-chip>
+        </mat-chip-list>
+        <mat-list>
+          <mat-list-item>
+            <p>Taille: {{ pokemonToDisplay.height | number:'1.1-1' }} m</p>
+          </mat-list-item>
+        </mat-list>
+        <mat-list>
+          <mat-list-item>
+            <p>Poids: {{ pokemonToDisplay.weight | number:'1.1-1' }} kg</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-grid-list>
+    </mat-grid-tile>
 
-      <mat-grid-tile colspan=2 rowspan=1 >
-        <p>{{ pokemon.description }}</p>
-      </mat-grid-tile>
+    <mat-grid-tile colspan=2 row=1>
+      <p>{{ pokemonToDisplay.description }}</p>
+    </mat-grid-tile>
 
-    </mat-grid-list>
-  </mat-card>
-</ng-container>
+  </mat-grid-list>
+</mat-card>

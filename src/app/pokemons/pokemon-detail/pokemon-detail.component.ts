@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Pokemon } from '../model/pokemon.model';
 import { PokemonService } from '../pokemon.service';
 
@@ -8,15 +7,21 @@ import { PokemonService } from '../pokemon.service';
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss']
 })
-export class PokemonDetailComponent implements OnInit {
+export class PokemonDetailComponent implements OnChanges {
 
-  constructor(private pokemonService: PokemonService, private route: ActivatedRoute) { }
+  @Input() pokemonToDisplay?: Pokemon;
 
-  pokemon?: Pokemon;
+  constructor(private pokemonService: PokemonService) { }
 
-  ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.pokemonService.getPokemonDetail(id).subscribe(pokemon => this.pokemon = pokemon);
+  ngOnChanges(): void {
+    this.getPokemon();
+  }
+
+  getPokemon(){
+    const id = this.pokemonToDisplay?.id
+    if(id){
+      this.pokemonService.getPokemonDetail(id).subscribe(pokemon => this.pokemonToDisplay = pokemon);
+    }
   }
 
   playPokemonSound(id: number){

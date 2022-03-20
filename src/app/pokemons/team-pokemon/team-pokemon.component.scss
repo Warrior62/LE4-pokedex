@@ -1,3 +1,12 @@
 mat-list-item{
-  background-color: purple;
+  background-color: rgb(255, 206, 49);
+  margin-bottom: 5%;
+}
+
+mat-list-item:hover{
+  background-color: rgba(255, 206, 49, 0.5);
+}
+
+p{
+  color: rgb(47, 44, 151);
 }

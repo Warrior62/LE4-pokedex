@@ -30,7 +30,9 @@ export class TeamPokemonComponent implements OnInit {
       this.authService.getMyTeam(this.authService.token).subscribe(data => {
         this.teamService.teamIds = data
         this.getPokemonsTeam()
-        this.teamService.subject.next(data)
+        this.teamService.subject.subscribe(data => {
+          this.getPokemonsTeam()
+        })
       })
     }
   }

@@ -36,12 +36,12 @@ export class TeamService {
   addPokemonToTeam(id: number){
     console.log(`pokemon added : ${id}`)
     if(this.teamIds.length < 6) {
-      this.teamIds.push(id);
+      this.teamIds.push(id)
       this.setMyTeam(this.teamIds).subscribe(_ => {
         this.subject.next(this.teamIds)
         if(this.authService.token){
-          console.log('UPDATE team')
-          this.authService.getMyTeam(this.authService.token).subscribe(res => {})
+          console.log('ADD team')
+          this.authService.getMyTeam(this.authService.token)
         }
       })
     }
@@ -52,13 +52,14 @@ export class TeamService {
     this.teamIds.forEach((element,index)=>{
       if(element==id && !hasDeleted)
       {
-        hasDeleted = true;
-        this.teamIds.splice(index, 1);
+        hasDeleted = true
+        this.teamIds.splice(index, 1)
         this.setMyTeam(this.teamIds).subscribe(_ => {
-          console.log(`teamIds = ${this.teamIds}`)
-          this.http.put<[number]>(this.authService.pokemonsUrl + '/trainers/me/team', this.teamIds, {
-          headers: new HttpHeaders({'Authorization': 'Bearer ' + this.authService.token})})
           this.subject.next(this.teamIds)
+          if(this.authService.token){
+            console.log('REMOVE team')
+            this.authService.getMyTeam(this.authService.token)
+          }
         })
       }
     });

@@ -1,7 +1,7 @@
 <mat-nav-list class="pokedex-list">
-  <mat-list-item *ngFor="let pokemon of pokemons" (mouseover)="displayDetails(pokemon)">
+  <mat-list-item *ngFor="let pokemon of pokemons" (click)="displayDetails(pokemon)">
       <img matListAvatar src="assets/img/sprites/{{ pokemon.id }}.png" alt="pokemon_sprite_{{ pokemon.id }}">
-      <p matLine>{{pokemon.id}}. {{pokemon.name}}</p>
+      <p matLine><b>{{pokemon.id}}. {{pokemon.name}}</b></p>
       <button><mat-icon (click)="rmPkFromTeam(pokemon)">remove</mat-icon></button>
   </mat-list-item>
 </mat-nav-list>

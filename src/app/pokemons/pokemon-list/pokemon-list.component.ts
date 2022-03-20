@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { forkJoin, Subject } from 'rxjs';
 import { AuthentificationService } from 'src/app/authentification.service';
 import { TeamService } from 'src/app/team.service';
 import { PagedData } from '../model/paged-data.model';
@@ -20,7 +19,6 @@ export class PokemonListComponent implements OnInit {
   @Output() displayDetailEvent = new EventEmitter<Pokemon>();
   offset?: number = 0;
   search?: string;
-
 
   constructor(private pokemonService: PokemonService, private authService: AuthentificationService, private teamService: TeamService) { }
 
@@ -64,13 +62,16 @@ export class PokemonListComponent implements OnInit {
     console.log("addPkToTeam ")
     if(this.teamService.teamIds.length < 6)
     {
-      console.log("addPkToTeam 1")
-      /*if(this.teamService.teamIds.length + 1 == 6)
-        this.canAdd = false;
-      else
-        this.canAdd = true;
-      this.isInTeam = true;*/
+      var elt = document.getElementById(pk.id.toString())
+      if(elt){
+        var defaultColor = elt.style.backgroundColor
+        elt.style.backgroundColor = "green"
+        elt.style.backgroundColor = defaultColor
+      }
       this.teamService.addPokemonToTeam(pk.id || -1)
+    }
+    else {
+      alert('Vous avez atteint la limite de 6 pokemons dans votre équipe !')
     }
   }
 }
